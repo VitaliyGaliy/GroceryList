@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 } from 'node-uuid'
 
 const propTypes = {
   isEdit: React.PropTypes.bool
@@ -8,11 +9,16 @@ const propTypes = {
 export class Header extends React.Component {
     constructor(props) {
     super(props);
-      this.onEditSlide = this.onEditSlide.bind(this);
+    this.onEditSlide = this.onEditSlide.bind(this);
+    this.onAddSlide = this.onAddSlide.bind(this);
   }
 
   onEditSlide(e){
     this.props.editSlide()
+  }
+
+  onAddSlide(e){
+    this.props.addSlide({id:v4(), text:''})
   }
 
   render(){
@@ -34,7 +40,7 @@ export class Header extends React.Component {
           this.props.isEdit
           ?
           <div className='itemContainer'>
-            <div className='headerItems gear'>
+            <div className='headerItems gear' onClick={this.onAddSlide}>
               <h1>+</h1>
             </div>
             <div className='headerItems text'>

@@ -17,10 +17,13 @@ import Slides from '../components/Slides'
 
 
  const mapStateToProps = state => {
+
   return {
    isEdit: state.slides.isEdit,
-   slidesText: state.slides.slidesText
- }}
+   slidesText: state.slides.slidesText,
+   slidesList: state.slides.slidesList
+ }
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 

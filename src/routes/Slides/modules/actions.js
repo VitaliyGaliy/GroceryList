@@ -16,11 +16,16 @@ export const setText = t => (dispatch, getState) => {
   return dispatch({ type: consts.SET_TEXT, payload: t})
 }
 
+export const addSlide = id => (dispatch, getState) => {
+  return dispatch({ type: consts.ADD_SLIDE, payload: id})
+}
+
 
 
 export const actions = {
   editSlide,
   setText,
+  addSlide
 }
 
 export default actions

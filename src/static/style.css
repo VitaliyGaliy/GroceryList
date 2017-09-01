@@ -56,12 +56,13 @@ p{
 }
 
 .phoneBarItems{
-  height: 100%;
   flex: 1;
+  height: 100%;
 }
 
 .phoneBarItems > img{
   height: 50%;
+  max-width: 100%;
 }
 
 .phoneBarItemsClock {
@@ -75,12 +76,6 @@ p{
   justify-content: flex-end;
   align-items: center;
 }
-
-.phoneBar > img {
-  height: 45%;
-  margin: 1%;
-}
-
 .itemContainer{
   display: flex;
   align-items: center;

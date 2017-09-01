@@ -135,7 +135,7 @@
     "moment": "^2.15.1",
     "nlogger": "^1.0.0",
     "node-sass": "^3.11.2",
-    "node-uuid": "^1.4.7",
+    "node-uuid": "^1.4.8",
     "normalize.css": "^4.2.0",
     "normalizr": "^2.2.1",
     "npm": "^3.10.10",

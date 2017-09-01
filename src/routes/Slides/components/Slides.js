@@ -1,8 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'react-router'
-import SwipeableViews from 'react-swipeable-views';
 import classes from './Slides.scss'
+import SlidesList from './SlidesList'
 
 
 const propTypes = {
@@ -13,48 +12,49 @@ export class Slides extends React.Component {
   constructor(props) {
   super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.state={text:''}
 }
 
   handleChange(e){
-    this.props.setText(e.target.value)
+    this.setState({text:e.target.value})
   }
 
+  onBlur(e){
+    this.props.setText(this.state.text)
+  }
+
+
   render() {
-    console.log('setText', this.props.slidesText);
+    console.log('slidesList', this.props.slidesList);
+    const slidesList = this.props.slidesList || [];
     return(
       <div className='sladesWrapper'>
           <div className='slides'>
             {
               this.props.isEdit
               ?
-              <div className='leftSlide'>
-                <div className="imageContaner imageContanerDelete">
-                  <p>Delete</p>
+              slidesList.map( s => (
+                <div className='leftSlide' key={s.id}>
+                  <div className="imageContaner imageContanerDelete">
+                    <p>Delete</p>
+                  </div>
+                  <div className="textContainer">
+                    <input value={this.state.text}
+                           onChange={this.handleChange}
+                           onBlur={this.onBlur}/>
+                  </div>
                 </div>
-                <div className="textContainer">
-                  <input value={this.props.slidesText}
-                         onChange={this.handleChange}/>
-                </div>
-              </div>
+              ))
               :
-              <SwipeableViews style={{height:'100%'}}>
-                <div className='leftSlide'>
-                  <div className="imageContaner">
-                    <img src="/assets/chart.png" alt=""/>
-                  </div>
-                  <div className="textContainer">
-                    <p>{this.props.slidesText}</p>
-                  </div>
-                </div>
-                <div className='leftSlide'>
-                  <div className="textContainer">
-                    <p>{this.props.slidesText}</p>
-                  </div>
-                  <div className="imageContaner imageContanerRight">
-                    <img src="/assets/home.png" alt=""/>
-                  </div>
-                </div>
-              </SwipeableViews>
+
+                slidesList.map( s => (
+                      <SlidesList
+                        key={s.id}
+                        slidesText={this.props.slidesText}
+                      />
+                ))
+
             }
           </div>
       </div>
