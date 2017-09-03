@@ -13,7 +13,7 @@ const propTypes = {
 export const Slides = (props) => {
   const slidesList = props.slidesList || [];
   const setText = props.setText;
-  // console.log('filteredSlidesList', props.filteredSlidesList;
+  const filteredSlidesList = props.filteredSlidesList;
   return(
     <div className='sladesWrapper'>
         <div className='slides'>
@@ -30,7 +30,7 @@ export const Slides = (props) => {
               />
             ))
             :
-            slidesList.map( s => (
+            filteredSlidesList.map( s => (
               <SlidesList
                 key={s.id}
                 text={s.text}

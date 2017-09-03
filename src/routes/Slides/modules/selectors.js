@@ -2,22 +2,21 @@ import { createSelector } from 'reselect'
 
 export const getIsEdit = state => state.slides.isEdit
 export const getSlidesList = state => state.slides.slidesList
-export const getSlidesIndex = state => state.slides.index
+export const getFilter = state => state.slides.filteredSlides
 
 export const getFilteredSlidesList = createSelector(
-  [getSlidesList, getSlidesIndex],
-  (slides, index) => {
-    return index == 0 ?
+  [getSlidesList, getFilter],
+  (slides, f) => {
+    debugger
+    return f == 'all' ?
              slides :
-             slides.filter(s => { if(s.index === index) return s })
+             slides.filter(s => { if(s.index === 1) return s })
   }
-
 )
 
 
 export default {
   getIsEdit,
   getSlidesList,
-  getSlidesIndex,
   getFilteredSlidesList,
 }

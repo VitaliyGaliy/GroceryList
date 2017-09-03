@@ -13,6 +13,7 @@ import { initial } from './initial'
 // ------------------------------------
 export const actionHandlers = {
   [consts.EDIT_SLIDE]: (state, action) => ({ ...state, isEdit: action.payload }),
+  [consts.FILTERED_SLIDES]: (state, action) => ({ ...state, filteredSlides: action.payload }),
 
   [consts.CHANGE_SLIDE]: (state, action) => {
     const editetslidesList = state.slidesList.map(s => {

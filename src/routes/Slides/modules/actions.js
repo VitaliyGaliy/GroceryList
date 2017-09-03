@@ -28,12 +28,17 @@ export const slideChange = o => (dispatch, getState) => {
   return dispatch({ type: consts.CHANGE_SLIDE, payload: o})
 }
 
+export const filterSlides = f => (dispatch, getState) => {
+  return dispatch({ type: consts.  FILTERED_SLIDES, payload: f})
+}
+
 export const actions = {
   editSlide,
   setText,
   addSlide,
   deleteSlide,
-  slideChange
+  slideChange,
+  filterSlides
 }
 
 export default actions

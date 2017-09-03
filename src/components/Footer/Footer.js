@@ -13,20 +13,20 @@ export class Footer extends React.Component {
 }
 
 onSlideChange(e){
-  const index = e.currentTarget.getAttribute('data-myAttr');
-  // this.props.slideChange(index)
+  const f = e.currentTarget.getAttribute('data-myAttr');
+  this.props.filterSlides(f)
 }
 
   render() {
     return(
       <div id='footer'>
         <div className='footerItems allGroceries'
-          data-myAttr='0'
+          data-myAttr='all'
           onClick={this.onSlideChange}>
           <img src="/assets/footerRight.png" alt=""/>
         </div>
         <div className='footerItems chart'
-          data-myAttr='1'
+          data-myAttr='selected'
           onClick={this.onSlideChange}>
           <img src="/assets/chartFooter.png" alt=""/>
         </div>

@@ -13,7 +13,7 @@ import Slides from '../components/Slides'
   return {
    isEdit: slides.getIsEdit(state),
    slidesList: slides.getSlidesList(state),
-   slidesIndex: slides.getSlidesIndex(state),
+  //  slidesIndex: slides.getSlidesIndex(state),
    filteredSlidesList: slides.getFilteredSlidesList(state)
  }
 }
