@@ -3,9 +3,7 @@
 // ------------------------------------
 export const initial = {
   isEdit: false,
-  slidesText: '',
-  slidesList: []
-
+  slidesList: [],
 }
 
 export default initial

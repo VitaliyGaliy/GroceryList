@@ -20,12 +20,20 @@ export const addSlide = id => (dispatch, getState) => {
   return dispatch({ type: consts.ADD_SLIDE, payload: id})
 }
 
+export const deleteSlide = id => (dispatch, getState) => {
+  return dispatch({ type: consts.DELETE_SLIDE, payload: id})
+}
 
+export const slideChange = o => (dispatch, getState) => {
+  return dispatch({ type: consts.CHANGE_SLIDE, payload: o})
+}
 
 export const actions = {
   editSlide,
   setText,
-  addSlide
+  addSlide,
+  deleteSlide,
+  slideChange
 }
 
 export default actions

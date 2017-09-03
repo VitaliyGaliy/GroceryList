@@ -6,16 +6,34 @@ const propTypes = {
 const defaultProps = {
 }
 
-export const Footer = (props) => (
-  <div id='footer'>
-    <div className='footerItems allGroceries'>
-      <img src="/assets/footerRight.png" alt=""/>
-    </div>
-    <div className='footerItems chart'>
-      <img src="/assets/chartFooter.png" alt=""/>
-    </div>
-  </div>
-)
+export class Footer extends React.Component {
+  constructor(props) {
+  super(props);
+  this.onSlideChange = this.onSlideChange.bind(this);
+}
+
+onSlideChange(e){
+  const index = e.currentTarget.getAttribute('data-myAttr');
+  // this.props.slideChange(index)
+}
+
+  render() {
+    return(
+      <div id='footer'>
+        <div className='footerItems allGroceries'
+          data-myAttr='0'
+          onClick={this.onSlideChange}>
+          <img src="/assets/footerRight.png" alt=""/>
+        </div>
+        <div className='footerItems chart'
+          data-myAttr='1'
+          onClick={this.onSlideChange}>
+          <img src="/assets/chartFooter.png" alt=""/>
+        </div>
+      </div>
+    )
+  }
+}
 
 Footer.propTypes = propTypes
 Footer.defaultProps = defaultProps

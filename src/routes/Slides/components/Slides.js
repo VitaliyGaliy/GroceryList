@@ -1,65 +1,47 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Helmet from 'react-helmet'
 import classes from './Slides.scss'
 import SlidesList from './SlidesList'
-
+import EditSlide from './EditSlide'
 
 const propTypes = {
-  isEdit: React.PropTypes.bool
+  isEdit: PropTypes.bool,
+  setText: PropTypes.func.isRequired,
+  slidesList: PropTypes.array.isRequired,
 }
 
-export class Slides extends React.Component {
-  constructor(props) {
-  super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-    this.state={text:''}
-}
-
-  handleChange(e){
-    this.setState({text:e.target.value})
-  }
-
-  onBlur(e){
-    this.props.setText(this.state.text)
-  }
-
-
-  render() {
-    console.log('slidesList', this.props.slidesList);
-    const slidesList = this.props.slidesList || [];
-    return(
-      <div className='sladesWrapper'>
-          <div className='slides'>
-            {
-              this.props.isEdit
-              ?
-              slidesList.map( s => (
-                <div className='leftSlide' key={s.id}>
-                  <div className="imageContaner imageContanerDelete">
-                    <p>Delete</p>
-                  </div>
-                  <div className="textContainer">
-                    <input value={this.state.text}
-                           onChange={this.handleChange}
-                           onBlur={this.onBlur}/>
-                  </div>
-                </div>
-              ))
-              :
-
-                slidesList.map( s => (
-                      <SlidesList
-                        key={s.id}
-                        slidesText={this.props.slidesText}
-                      />
-                ))
-
-            }
-          </div>
-      </div>
-    )
-  }
+export const Slides = (props) => {
+  const slidesList = props.slidesList || [];
+  const setText = props.setText;
+  // console.log('filteredSlidesList', props.filteredSlidesList;
+  return(
+    <div className='sladesWrapper'>
+        <div className='slides'>
+          {
+            props.isEdit
+            ?
+            slidesList.map( s => (
+              <EditSlide
+                key={s.id}
+                id={s.id}
+                text={s.text}
+                setText={props.setText}
+                deleteSlide={props.deleteSlide}
+              />
+            ))
+            :
+            slidesList.map( s => (
+              <SlidesList
+                key={s.id}
+                text={s.text}
+                id={s.id}
+                slideChange={props.slideChange}
+              />
+            ))
+          }
+        </div>
+    </div>
+  )
 }
 
 export default Slides

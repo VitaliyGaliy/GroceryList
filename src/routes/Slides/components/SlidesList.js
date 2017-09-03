@@ -1,37 +1,26 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Helmet from 'react-helmet'
 import SwipeableViews from 'react-swipeable-views';
 
-
-
 const propTypes = {
-  isEdit: React.PropTypes.bool
+  text: PropTypes.string.isRequired,
 }
 
-export class SlidesList extends React.Component {
-  constructor(props) {
-  super(props);
-    // this.handleChange = this.handleChange.bind(this);
-}
-
-  handleChange(e){
-    // this.props.setText(e.target.value)
-  }
-
-  render() {
+export const SlidesList = (props) => {
     return(
-      <SwipeableViews style={{height:'100%'}}>
+      <SwipeableViews style={{height:'100%'}}
+        onChangeIndex={(index) => props.slideChange({index, id:props.id})}>
         <div className='leftSlide'>
           <div className="imageContaner">
             <img src="/assets/chart.png" alt=""/>
           </div>
           <div className="textContainer">
-            <p>{this.props.slidesText}</p>
+            <p>{props.text}</p>
           </div>
         </div>
         <div className='leftSlide'>
           <div className="textContainer">
-            <p>{this.props.slidesText}</p>
+            <p>{props.text}</p>
           </div>
           <div className="imageContaner imageContanerRight">
             <img src="/assets/home.png" alt=""/>
@@ -39,7 +28,7 @@ export class SlidesList extends React.Component {
         </div>
       </SwipeableViews>
     )
-  }
-}
+
+    }
 
 export default SlidesList
