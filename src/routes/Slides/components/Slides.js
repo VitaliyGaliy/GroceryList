@@ -14,9 +14,11 @@ export const Slides = (props) => {
   const slidesList = props.slidesList || [];
   const setText = props.setText;
   const filteredSlidesList = props.filteredSlidesList;
+  const slideBorder = slidesList.length == 0 ?
+          {borderTop: 'none', borderBottom: 'none'}: null;
   return(
     <div className='sladesWrapper'>
-        <div className='slides'>
+        <div className='slides' style={slideBorder}>
           {
             props.isEdit
             ?

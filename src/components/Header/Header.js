@@ -27,13 +27,13 @@ export class Header extends React.Component {
       <div id='header'>
         <div className='phoneBar'>
           <div className='phoneBarItems'>
-            <img src="/assets/TLE.png" alt=""/>
+            <img src="/assets/TLE.png" alt="" style={{paddingLeft: '4%'}}/>
           </div>
           <div className='phoneBarItems phoneBarItemsClock'>
             <img src="/assets/clock.png" alt=""/>
           </div>
           <div className='phoneBarItems phoneBarItemsBattery'>
-            <img src="/assets/battery.png" alt=""/>
+            <img src="/assets/battery.png" alt="" style={{paddingRight: '4%'}}/>
           </div>
         </div>
         {

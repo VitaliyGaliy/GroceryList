@@ -7,7 +7,6 @@ export const getFilter = state => state.slides.filteredSlides
 export const getFilteredSlidesList = createSelector(
   [getSlidesList, getFilter],
   (slides, f) => {
-    debugger
     return f == 'all' ?
              slides :
              slides.filter(s => { if(s.index === 1) return s })
