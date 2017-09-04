@@ -7,9 +7,12 @@ const propTypes = {
 }
 
 export const SlidesList = (props) => {
+  const index = props.index || 0;
     return(
       <SwipeableViews style={{height:'100%'}}
-        onChangeIndex={(index) => props.slideChange({index, id:props.id})}>
+        onChangeIndex={(index) => props.slideChange({index, id:props.id})}
+        index={index}
+      >
         <div className='leftSlide'>
           <div className="imageContaner">
             <img src="/assets/chart.png" alt=""/>

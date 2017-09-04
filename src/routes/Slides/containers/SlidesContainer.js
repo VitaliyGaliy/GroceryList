@@ -9,11 +9,10 @@ import Slides from '../components/Slides'
 
 
  const mapStateToProps = state => {
-
+  console.log('idex', slides.getSlidesList(state));
   return {
    isEdit: slides.getIsEdit(state),
    slidesList: slides.getSlidesList(state),
-  //  slidesIndex: slides.getSlidesIndex(state),
    filteredSlidesList: slides.getFilteredSlidesList(state)
  }
 }

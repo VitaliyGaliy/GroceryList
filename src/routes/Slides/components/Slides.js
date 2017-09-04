@@ -24,20 +24,16 @@ export const Slides = (props) => {
             ?
             slidesList.map( s => (
               <EditSlide
-                key={s.id}
-                id={s.id}
-                text={s.text}
                 setText={props.setText}
                 deleteSlide={props.deleteSlide}
+                {...s}
               />
             ))
             :
             filteredSlidesList.map( s => (
               <SlidesList
-                key={s.id}
-                text={s.text}
-                id={s.id}
                 slideChange={props.slideChange}
+                {...s}
               />
             ))
           }
